@@ -1,0 +1,58 @@
+# Compiled object files
+*.o
+*.obj
+*.dll
+*.exe
+*.pdb
+*.apk
+*.bak
+*.swp
+
+# Directories
+bin/
+obj/
+
+# Visual Studio files
+.vscode/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Mac files
+.DS_Store
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# NUnit
+*.VisualState.xml
+TestResult.xml
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]uild/
+
+# Chutzpah Test files
+_chutzpah/
+
+# Styles
+_StyleCop/
+
