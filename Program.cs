@@ -5,7 +5,7 @@ using System.Runtime.Intrinsics.Arm;
 
 //List<string> listaDasBandas = new List<string> { "U2", "Iron Maiden", "Beatles" };
 Dictionary<string, List<int>> bandasRegistradas = new(StringComparer.OrdinalIgnoreCase);
-bandasRegistradas.Add("Bon Jovin", new List<int> { 10, 9, 8 });
+bandasRegistradas.Add("Bon Jovi", new List<int> { 10, 9, 8 });
 bandasRegistradas.Add("Beatles", new List<int> { });
 
 void ExibirLogo()
@@ -120,14 +120,13 @@ void AvaliarUmaBanda()
     // A banda existe? Se existir atribuir nota!
     if (bandasRegistradas.ContainsKey(nomeDaBanda))
     {
-        System.Console.Write($"Qual sua nota para a banda {nomeDaBanda} ? ");
+        System.Console.Write($"\nQual sua nota para a banda {nomeDaBanda} ? ");
         int nota = int.Parse(Console.ReadLine()!);
         bandasRegistradas[nomeDaBanda].Add(nota);
         System.Console.Write($"Nota {nota} atribuida com sucesso para {nomeDaBanda}.");
         System.Console.WriteLine("\n RETORNANDO AO MENU PRINCIPAL...");
         Thread.Sleep(3000);
         Console.Clear();
-
     }
     // Se não, volta ao menu principal.        
     else
@@ -151,14 +150,15 @@ void ExibirMediaDaBanda()
     ExibirTituloDaOpcao("MÉDIA DA BANDA ESCOLHIDA");
 
     // Qual o nome da banda para média ?
-    System.Console.Write("\nDigite qual banda deseja avaliar? ");
+    System.Console.Write("\nDigite o nome da banda para média: ");
     string nomeDaBanda = Console.ReadLine()!;
 
     // Se a banda está cadastrada, exibir a média.
     if (bandasRegistradas.ContainsKey(nomeDaBanda))
     {
         double mediaDaBanda = bandasRegistradas[nomeDaBanda].Average();
-        System.Console.WriteLine($"A Média da banda {nomeDaBanda} é: {mediaDaBanda}");
+        System.Console.WriteLine($"\nA Média da banda {nomeDaBanda} é: {mediaDaBanda}");
+        System.Console.WriteLine("\n RETORNANDO AO MENU PRINCIPAL...");
         Thread.Sleep(3000);
     }
     // Se não, essa banda não está cadastrada ou não possui nota.
@@ -167,9 +167,9 @@ void ExibirMediaDaBanda()
         System.Console.WriteLine($"\nBanda {nomeDaBanda} não encontrado!");
         System.Console.Write("Digite uma tecla para Menu Príncipal: ");
         Console.ReadKey();
-        Console.Clear();
-    }
 
+    }
+    Console.Clear();
     ExibirLogo();
     ExibirOpcoesDoMenu();
 }
