@@ -4,7 +4,7 @@ using System.Runtime.Intrinsics.Arm;
 
 
 //List<string> listaDasBandas = new List<string> { "U2", "Iron Maiden", "Beatles" };
-Dictionary<string, List<int>> bandasRegistradas = new Dictionary<string, List<int>>();
+Dictionary<string, List<int>> bandasRegistradas = new(StringComparer.OrdinalIgnoreCase);
 bandasRegistradas.Add("Bon Jovin", new List<int> { 10, 9, 8 });
 bandasRegistradas.Add("Beatles", new List<int> { });
 
@@ -48,7 +48,7 @@ void ExibirOpcoesDoMenu()
             AvaliarUmaBanda();
             break;
         case 4:
-            Console.WriteLine("Você digitou a opção: " + opcaoEscolhidaNumerica);
+            ExibirMediaDaBanda();
             break;
         case 5:
             Console.WriteLine("Tchau! :)");
@@ -73,7 +73,7 @@ void RegistrarBanda()
     System.Console.WriteLine("\nGravando...");
     Thread.Sleep(3000);
     ExibirTituloDaOpcao($"A banda {nomeDaBanda} foi regritada com sucesso!");
-    Thread.Sleep(4000); //Aguardando
+    Thread.Sleep(2000); //Aguardando
     Console.Clear();
 
     ExibirLogo();
@@ -124,7 +124,8 @@ void AvaliarUmaBanda()
         int nota = int.Parse(Console.ReadLine()!);
         bandasRegistradas[nomeDaBanda].Add(nota);
         System.Console.Write($"Nota {nota} atribuida com sucesso para {nomeDaBanda}.");
-        Thread.Sleep(4000);
+        System.Console.WriteLine("\n RETORNANDO AO MENU PRINCIPAL...");
+        Thread.Sleep(3000);
         Console.Clear();
 
     }
@@ -139,13 +140,39 @@ void AvaliarUmaBanda()
 
     ExibirLogo();
     ExibirOpcoesDoMenu();
-
-
 }
 
 
 
 // * Opção 4: Exibir a média de uma banda.
+void ExibirMediaDaBanda()
+{
+    Console.Clear();
+    ExibirTituloDaOpcao("MÉDIA DA BANDA ESCOLHIDA");
+
+    // Qual o nome da banda para média ?
+    System.Console.Write("\nDigite qual banda deseja avaliar? ");
+    string nomeDaBanda = Console.ReadLine()!;
+
+    // Se a banda está cadastrada, exibir a média.
+    if (bandasRegistradas.ContainsKey(nomeDaBanda))
+    {
+        double mediaDaBanda = bandasRegistradas[nomeDaBanda].Average();
+        System.Console.WriteLine($"A Média da banda {nomeDaBanda} é: {mediaDaBanda}");
+        Thread.Sleep(3000);
+    }
+    // Se não, essa banda não está cadastrada ou não possui nota.
+    else
+    {
+        System.Console.WriteLine($"\nBanda {nomeDaBanda} não encontrado!");
+        System.Console.Write("Digite uma tecla para Menu Príncipal: ");
+        Console.ReadKey();
+        Console.Clear();
+    }
+
+    ExibirLogo();
+    ExibirOpcoesDoMenu();
+}
 
 
 /* Asteriscos: Ajustando exibição do título.*/
