@@ -23,16 +23,29 @@ class Album
             else
             {
                 nome = value;
-                System.Console.WriteLine($"Albúm: {nome}");
+                System.Console.WriteLine($"\nÁlbum: {nome}");
             }
         }
     }
 
+    // Para adiconar:
     public void AdicionarMusica(Musica musica)
     {
         musicas.Add(musica);
     }
 
+    // Para Exibir: config. em Músicas.
+    public void ExibirMusicasAlbum()
+    {
+        //validar:
+        if (musicas == null || musicas.Count == 0)
+        {
+            System.Console.WriteLine($"Não há músicas no álbum.");
+        }
+
+        System.Console.WriteLine($"\n***Músicas do Álbum {nome}***");
+        musicas?.ForEach(musica => System.Console.WriteLine(musica));
+    }
 
 
 }

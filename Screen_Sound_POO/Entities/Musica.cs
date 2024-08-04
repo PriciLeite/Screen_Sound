@@ -23,11 +23,8 @@ class Musica
             {
                 throw new ArgumentException($"Nome da música: Insuficiente ou nulo não permitido.");
             }
-            else
-            {
-                nome = value;
-                System.Console.WriteLine($"Música: {nome}");
-            }
+            nome = value;
+            System.Console.WriteLine($"Música: {Nome}");
         }
 
     }
@@ -44,11 +41,10 @@ class Musica
             {
                 throw new ArgumentException($"Nome do Artista: Insuficiente ou nulo não permitido.");
             }
-            else
-            {
-                artista = value;
-                System.Console.WriteLine($"Artista: {Artista}");
-            }
+            artista = value;
+            System.Console.WriteLine($"Artista: {Artista}");
+
+
         }
     }
 
@@ -68,11 +64,9 @@ class Musica
             {
                 throw new ArgumentException("A duração da música não pode exceder 1 hora.", nameof(value));
             }
-            else
-            {
-                duracao = value;
-                System.Console.WriteLine($"Duração: {Duracao} min");
-            }
+            duracao = value;
+            System.Console.WriteLine($"Duração: {Duracao} min");
+
         }
     }
 
@@ -86,9 +80,16 @@ class Musica
         }
 
     }
-    public string DescricaoResumida => $"A mísuca {Nome} pertence a banda {Artista}";
+
+    //Descrição na criação do objeto.
+    public string DescricaoResumida => $"\nA mísuca {Nome} pertence a banda {Artista}.";
 
 
+    //Sobrescrever o método 'ToString' para exibir objetos da classe:
+    public override string ToString()
+    {
+        return $"\nNome: {nome}, \nArtista: {artista}, \nDuração: {duracao}, \nDisponível: {disponivel}";
+    }
 
 
     public void ExibirFichaTecnica()
