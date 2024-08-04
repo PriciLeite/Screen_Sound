@@ -16,7 +16,7 @@ class Musica
     // menor que 2 dígitos?
     public string? Nome
     {
-        get { return nome; }
+        get => nome;
         set
         {
             if (string.IsNullOrEmpty(value) || value.Length < 2)
@@ -37,7 +37,7 @@ class Musica
     // menor que 2 dígitos?
     public string? Artista
     {
-        get { return artista; }
+        get => artista;
         set
         {
             if (string.IsNullOrEmpty(value) || value.Length < 2)
@@ -57,7 +57,7 @@ class Musica
     // Duração máxima    
     public int Duracao
     {
-        get { return duracao; }
+        get => duracao;
         set
         {
             if (value <= 0)
@@ -78,7 +78,7 @@ class Musica
 
     public bool Disponivel
     {
-        get { return disponivel; }
+        get => disponivel;
         set
         {
             disponivel = value;
