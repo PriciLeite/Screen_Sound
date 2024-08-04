@@ -16,9 +16,16 @@ class Program
         musica1.Duracao = 2;
         musica1.Disponivel = true;
 
+        Banda banda1 = new Banda();
+        banda1.Nome = "Queen";
+        banda1.AdicionarAlbum(album1);
+        banda1.ExibirDiscografia();
+
+
         album1.AdicionarMusica(musica1);
         System.Console.WriteLine(musica1.DescricaoResumida);
         album1.ExibirMusicasAlbum();
+
 
     }
 
