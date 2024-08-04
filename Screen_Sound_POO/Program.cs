@@ -1,12 +1,19 @@
-﻿internal class Program
+﻿using ScreenSound.ScreenSoundPOO;
+
+class Program
 {
-
-
-    static public int Somar(int a, int b) => a + b;
 
     private static void Main(string[] args)
     {
-        var resultado1 = Somar(100, 100);
-        System.Console.WriteLine($"Soma: {resultado1}");
+        Musica musica1 = new Musica();
+        musica1.Nome = "Love of my life";
+        musica1.Artista = "Queen";
+        musica1.Duracao = 2;
+
+        musica1.ExibirFichaTecnica();
+        System.Console.WriteLine(musica1.DescricaoResumida);
     }
+
+
+
 }
