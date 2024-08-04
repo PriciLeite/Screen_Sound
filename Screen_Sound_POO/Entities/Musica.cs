@@ -29,9 +29,6 @@ class Musica
 
     }
 
-
-    //null ou vazio ?
-    // menor que 2 dígitos?
     public string? Artista
     {
         get => artista;
@@ -49,8 +46,6 @@ class Musica
     }
 
 
-    //valor positivo?
-    // Duração máxima    
     public int Duracao
     {
         get => duracao;
@@ -81,24 +76,16 @@ class Musica
 
     }
 
-    //Descrição na criação do objeto.
+
     public string DescricaoResumida => $"\nA mísuca {Nome} pertence a banda {Artista}.";
 
 
-    //Sobrescrever o método 'ToString' para exibir objetos da classe:
+
     public override string ToString()
     {
         return $"\nNome: {nome}, \nArtista: {artista}, \nDuração: {duracao}, \nDisponível: {disponivel}";
     }
 
-
-    public void ExibirFichaTecnica()
-    {
-        //System.Console.WriteLine($"Música: {Nome}");
-        //System.Console.WriteLine($"Artista: {Artista}");
-        //System.Console.WriteLine($"Duração: {Duracao} min");
-        //System.Console.WriteLine($"Disponível ? {Disponivel}");
-    }
 
 
 }

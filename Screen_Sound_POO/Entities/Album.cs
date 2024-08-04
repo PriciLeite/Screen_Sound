@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,7 @@ namespace ScreenSound.ScreenSoundPOO;
 class Album
 {
     private string? nome;
-    public int DuracaoDoAlbum => musicas.Sum(musica => musica.Duracao);
-    //Músicas pertencem ao Albúm:
-    private List<Musica> musicas = new List<Musica>();
+    private List<Musica> musicas;
 
 
     public string? Nome
@@ -30,15 +29,15 @@ class Album
         }
     }
 
+    public Album() => musicas = new List<Musica>();
+    public int DuracaoTotal => musicas.Sum(musica => musica.Duracao);
 
-    // Para adiconar:
+
     public void AdicionarMusica(Musica musica)
     {
         musicas.Add(musica);
     }
 
-
-    // Para Exibir: config. em Músicas.
     public void ExibirMusicasAlbum()
     {
         //validar:
@@ -50,7 +49,7 @@ class Album
         System.Console.WriteLine($"\n***Músicas do Álbum {nome}***");
         musicas?.ForEach(musica => System.Console.WriteLine(musica));
 
-        System.Console.WriteLine($"\nPara ouvir este álbum você precisa de: {DuracaoDoAlbum} min");
+        System.Console.WriteLine($"\nDuração total do Álbum: {DuracaoTotal} min");
     }
 
 }
