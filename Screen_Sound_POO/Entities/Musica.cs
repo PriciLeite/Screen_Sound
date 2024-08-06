@@ -70,7 +70,7 @@ class Musica
 
     public override string ToString()
     {
-        return $"\nNome: {nome}, \nArtista: {Banda.Nome}, \nDuração: {duracao}, \nDisponível: {disponivel}";
+        return $"\nNome: {nome}, \nArtista: {Banda.Nome}, \nDuração: {duracao} \nDisponível: {Disponivel}";
     }
 
 

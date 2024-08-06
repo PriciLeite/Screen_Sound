@@ -5,7 +5,7 @@ namespace ScreenSound.ScreenSoundPOO;
 class Banda
 {
 
-    public string? Nome { get; }
+    public string? Nome { get; set; }
     private List<Album> albums = new List<Album>();
 
     public Banda(string? nome)

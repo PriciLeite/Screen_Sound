@@ -7,6 +7,7 @@ class Program
     {
 
         Banda banda1 = new Banda("Queen");
+        banda1.ExibirDiscografia();
 
         Album album1 = new Album("A night of the opera");
 
@@ -16,7 +17,6 @@ class Program
 
 
         album1.AdicionarMusica(musica1);
-        banda1.ExibirDiscografia();
 
         banda1.AdicionarAlbum(album1);
         System.Console.WriteLine(musica1.DescricaoResumida);

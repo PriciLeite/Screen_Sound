@@ -9,12 +9,12 @@ namespace ScreenSound.ScreenSoundPOO;
 class Album
 {
     private string? nome;
-    public List<Musica> musicas = new List<Musica>();
+    public List<Musica> musicas { get; } = new List<Musica>();
 
 
     public Album(string? nome)
     {
-        this.nome = nome;
+        this.Nome = nome;
     }
 
     public string? Nome
@@ -42,6 +42,7 @@ class Album
     public void AdicionarMusica(Musica musica)
     {
         musicas.Add(musica);
+
     }
 
     public void ExibirMusicasAlbum()
@@ -50,10 +51,15 @@ class Album
         if (musicas == null || musicas.Count == 0)
         {
             System.Console.WriteLine($"Não há músicas no álbum.");
+            return;
         }
 
-        System.Console.WriteLine($"\n***Músicas do Álbum {nome}***");
-        musicas?.ForEach(musica => System.Console.WriteLine(musica));
+        System.Console.WriteLine($"\n***Músicas do Álbum {Nome}***");
+        foreach (var musica in musicas)
+        {
+            string disponibilidade = musica.Disponivel ? "Música disponível." : "Música Indisponível.";
+            System.Console.WriteLine($"\nMúsica:{musica.Nome}\nDuração:{musica.Duracao}\n{disponibilidade}");
+        }
 
         System.Console.WriteLine($"\nDuração total do Álbum: {DuracaoTotal} min");
     }
