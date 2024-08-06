@@ -7,13 +7,20 @@ namespace ScreenSound.ScreenSoundPOO;
 class Musica
 {
     private string? nome;
-    private string? artista;
+    private Banda Banda { get; }
     private int duracao;
     private bool disponivel;
 
 
-    //null ou vazio ?
-    // menor que 2 dígitos?
+    public Musica(string? nome, Banda banda, int duracao = 0, bool disponivel = false)
+    {
+        this.Nome = nome;
+        this.Banda = banda;
+        this.Duracao = duracao;
+        this.Disponivel = disponivel;
+    }
+
+
     public string? Nome
     {
         get => nome;
@@ -25,23 +32,6 @@ class Musica
             }
             nome = value;
             System.Console.WriteLine($"Música: {Nome}");
-        }
-
-    }
-
-    public string? Artista
-    {
-        get => artista;
-        set
-        {
-            if (string.IsNullOrEmpty(value) || value.Length < 2)
-            {
-                throw new ArgumentException($"Nome do Artista: Insuficiente ou nulo não permitido.");
-            }
-            artista = value;
-            System.Console.WriteLine($"Artista: {Artista}");
-
-
         }
     }
 
@@ -60,7 +50,7 @@ class Musica
                 throw new ArgumentException("A duração da música não pode exceder 1 hora.", nameof(value));
             }
             duracao = value;
-            System.Console.WriteLine($"Duração: {Duracao} min");
+            System.Console.WriteLine($"Duração: {Duracao} sec");
 
         }
     }
@@ -73,17 +63,14 @@ class Musica
             disponivel = value;
             System.Console.WriteLine(disponivel ? "Música disponível." : "Música Indisponível.");
         }
-
     }
 
-
-    public string DescricaoResumida => $"\nA mísuca {Nome} pertence a banda {Artista}.";
-
+    public string DescricaoResumida => $"\nA música {Nome} pertence a banda {Banda.Nome}.";
 
 
     public override string ToString()
     {
-        return $"\nNome: {nome}, \nArtista: {artista}, \nDuração: {duracao}, \nDisponível: {disponivel}";
+        return $"\nNome: {nome}, \nArtista: {Banda.Nome}, \nDuração: {duracao}, \nDisponível: {disponivel}";
     }
 
 

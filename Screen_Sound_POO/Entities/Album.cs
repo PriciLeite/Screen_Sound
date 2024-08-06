@@ -9,8 +9,13 @@ namespace ScreenSound.ScreenSoundPOO;
 class Album
 {
     private string? nome;
-    private List<Musica> musicas;
+    public List<Musica> musicas = new List<Musica>();
 
+
+    public Album(string? nome)
+    {
+        this.nome = nome;
+    }
 
     public string? Nome
     {
@@ -29,7 +34,8 @@ class Album
         }
     }
 
-    public Album() => musicas = new List<Musica>();
+
+
     public int DuracaoTotal => musicas.Sum(musica => musica.Duracao);
 
 
