@@ -22,8 +22,8 @@ class Program
         System.Console.WriteLine(episodio1.Resumo);
         System.Console.WriteLine(episodio2.Resumo);
 
-        meuPodcast.AdicionarEpisodio(episodio1);
         meuPodcast.AdicionarEpisodio(episodio2);
+        meuPodcast.AdicionarEpisodio(episodio1);
 
         meuPodcast.ExibirDetalhes();
 
