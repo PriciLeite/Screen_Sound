@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -24,14 +25,14 @@ class PodCast
 
     public void ExibirDetalhes()
     {
-        System.Console.WriteLine($"\n*** PodCast: {Nome} apresentado por {Host}***\n");
-        System.Console.WriteLine($"Total de Episódios: {TotalDeEpisodios}");
+        Console.WriteLine($"\n*** PodCast: {Nome} apresentado por {Host}***\n");
+        Console.WriteLine($"Total de Episódios: {TotalDeEpisodios}");
 
         foreach (Episodio episodio in episodios.OrderBy(e => e.Ordem))
         {
             System.Console.WriteLine($"{episodio.Resumo}");
         }
-        System.Console.WriteLine($"\n\nSão {TotalDeEpisodios} episódios para aproveitar.\n");
+        Console.WriteLine($"\n\nSão {TotalDeEpisodios} episódios para aproveitar.\n");
     }
 }
 

@@ -1,5 +1,5 @@
-using System.Security.Cryptography.X509Certificates;
 using System;
+using System.Security.Cryptography.X509Certificates;
 using System.Reflection.Metadata;
 
 namespace ScreenSound.ScreenSoundPOO;
@@ -31,7 +31,7 @@ class Musica
                 throw new ArgumentException($"Nome da música: Insuficiente ou nulo não permitido.");
             }
             nome = value;
-            System.Console.WriteLine($"Música: {Nome}");
+            Console.WriteLine($"Música: {Nome}");
         }
     }
 
@@ -50,7 +50,7 @@ class Musica
                 throw new ArgumentException("A duração da música não pode exceder 1 hora.", nameof(value));
             }
             duracao = value;
-            System.Console.WriteLine($"Duração: {Duracao} sec");
+            Console.WriteLine($"Duração: {Duracao} sec");
 
         }
     }
@@ -61,7 +61,7 @@ class Musica
         set
         {
             disponivel = value;
-            System.Console.WriteLine(disponivel ? "Música disponível." : "Música Indisponível.");
+            Console.WriteLine(disponivel ? "Música disponível." : "Música Indisponível.");
         }
     }
 

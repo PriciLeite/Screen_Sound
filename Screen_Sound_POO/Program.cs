@@ -1,4 +1,6 @@
-﻿using ScreenSound.ScreenSoundPOO;
+﻿using System;
+
+using ScreenSound.ScreenSoundPOO;
 
 class Program
 {
@@ -19,8 +21,8 @@ class Program
         episodio2.AdicionarConvidados("Mariana Lima");
 
         // Exibindo detalhes do episódio
-        System.Console.WriteLine(episodio1.Resumo);
-        System.Console.WriteLine(episodio2.Resumo);
+        Console.WriteLine(episodio1.Resumo);
+        Console.WriteLine(episodio2.Resumo);
 
         meuPodcast.AdicionarEpisodio(episodio2);
         meuPodcast.AdicionarEpisodio(episodio1);
