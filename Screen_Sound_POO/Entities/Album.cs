@@ -8,16 +8,16 @@ namespace ScreenSound.ScreenSoundPOO;
 
 class Album
 {
-    private string? nome;
+    private string nome;
     public List<Musica> musicas { get; } = new List<Musica>();
 
 
-    public Album(string? nome)
+    public Album(string nome)
     {
         this.Nome = nome;
     }
 
-    public string? Nome
+    public string Nome
     {
         get => nome;
         set

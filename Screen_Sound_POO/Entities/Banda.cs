@@ -5,23 +5,32 @@ namespace ScreenSound.ScreenSoundPOO;
 class Banda
 {
 
-    public string? Nome { get; }
-    private List<Album> albums = new List<Album>();
+    private List<Album> albuns = new List<Album>();
+    private List<int> notas = new List<int>();
 
-    public Banda(string? nome)
+    public Banda(string nome)
     {
-        Nome = nome;
+        this.Nome = nome;
+    }
+
+    public string Nome { get; }
+    public double Media => notas.Average();
+    public List<Album> Albuns => albuns;
+
+    public void AdicionarNota(int nota)
+    {
+        notas.Add(nota);
     }
 
     public void AdicionarAlbum(Album album)
     {
-        albums.Add(album);
+        albuns.Add(album);
     }
 
     public void ExibirDiscografia()
     {
         System.Console.WriteLine($"Discográfia da Banda {Nome}.");
-        foreach (Album album in albums)
+        foreach (Album album in albuns)
         {
             System.Console.WriteLine($"Álbum {album.Nome}");
         }

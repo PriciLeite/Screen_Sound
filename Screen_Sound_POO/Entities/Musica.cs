@@ -6,13 +6,13 @@ namespace ScreenSound.ScreenSoundPOO;
 
 class Musica
 {
-    private string? nome;
+    private string nome;
     private Banda Banda { get; }
     private int duracao;
     private bool disponivel;
 
 
-    public Musica(string? nome, Banda banda, int duracao = 0, bool disponivel = false)
+    public Musica(string nome, Banda banda, int duracao = 0, bool disponivel = false)
     {
         this.Nome = nome;
         this.Banda = banda;
@@ -21,7 +21,7 @@ class Musica
     }
 
 
-    public string? Nome
+    public string Nome
     {
         get => nome;
         set
