@@ -1,6 +1,4 @@
-﻿using System;
-using System.Security.Cryptography.X509Certificates;
-using ScreenSound.ScreenSoundPOO;
+﻿using ScreenSound.ScreenSoundPOO;
 
 
 class Program
@@ -8,13 +6,13 @@ class Program
     private static void Main(string[] args)
     {
         Banda bonJovi = new("Bon Jovi");
-        bonJovi.AdicionarNota(10);
-        bonJovi.AdicionarNota(8);
-        bonJovi.AdicionarNota(6);
+        bonJovi.AdicionarNota(new Avaliacao(10));
+        bonJovi.AdicionarNota(new Avaliacao(8));
+        bonJovi.AdicionarNota(new Avaliacao(6));
 
         Banda beatles = new("The Beatles");
-        beatles.AdicionarNota(10);
-        beatles.AdicionarNota(9);
+        beatles.AdicionarNota(new Avaliacao(10));
+        beatles.AdicionarNota(new Avaliacao(9));
 
 
         Dictionary<string, Banda> bandasRegistradas = new(StringComparer.OrdinalIgnoreCase);
@@ -23,7 +21,9 @@ class Program
 
         void ExibirLogo()
         {
-            Console.WriteLine("BEM-VINDO");
+            System.Console.WriteLine();
+            Console.WriteLine("BEM-VINDO AO SEU STREAMING FAVORITO");
+            System.Console.WriteLine();
             Console.WriteLine(@"
     ░██████╗░█████╗░██████╗░███████╗███████╗███╗░░██╗  ░██████╗░█████╗░██╗░░░██╗███╗░░██╗██████╗░
     ██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝████╗░██║  ██╔════╝██╔══██╗██║░░░██║████╗░██║██╔══██╗
@@ -162,7 +162,7 @@ class Program
             ExibirTituloDaOpcao("AVALIAR BANDA");
 
             // Qual banda deseja avaliar?
-            Console.Write("\nDigite qual banda deseja avaliar? ");
+            Console.Write("\nDigite qual banda deseja avaliar: ");
             string nomeDaBanda = Console.ReadLine()!;
 
             // A banda existe? Se existir atribuir nota
@@ -173,7 +173,7 @@ class Program
 
                 // pegando a banda do dicionário, se existir.
                 Banda banda = bandasRegistradas[nomeDaBanda];
-                banda.AdicionarNota(nota);
+                banda.AdicionarNota(new Avaliacao(nota));
                 Console.Write($"Nota {nota} atribuida com sucesso para {nomeDaBanda}.");
                 Console.WriteLine("\n RETORNANDO AO MENU PRINCIPAL...");
                 Thread.Sleep(3000);
