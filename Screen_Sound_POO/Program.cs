@@ -168,14 +168,15 @@ class Program
             // A banda existe? Se existir atribuir nota
             if (bandasRegistradas.ContainsKey(nomeDaBanda))
             {
-                Console.Write($"\nQual sua nota para a banda {nomeDaBanda} ? ");
-                int nota = int.Parse(Console.ReadLine()!);
+                Console.Write($"\nDigite sua nota para a banda {nomeDaBanda}: ");
+                Avaliacao nota = Avaliacao.Parse(Console.ReadLine()!);
 
                 // pegando a banda do dicionário, se existir.
                 Banda banda = bandasRegistradas[nomeDaBanda];
-                banda.AdicionarNota(new Avaliacao(nota));
-                Console.Write($"Nota {nota} atribuida com sucesso para {nomeDaBanda}.");
-                Console.WriteLine("\n RETORNANDO AO MENU PRINCIPAL...");
+                banda.AdicionarNota(nota);
+                System.Console.WriteLine();
+                Console.Write($"Nota {nota.Nota} atribuida com sucesso para {nomeDaBanda}.");
+                Console.WriteLine("\nRETORNANDO AO MENU PRINCIPAL...");
                 Thread.Sleep(3000);
                 Console.Clear();
             }
